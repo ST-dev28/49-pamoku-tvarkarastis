@@ -12,7 +12,7 @@ class Schedule {
     }
 
     formatTime(hours, minutes) {
-        return `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
+        return `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;  // jie vienzenkis skaicius, priekyje prideti 0
     }
 
     setNewLessonsBegins(newTime) {
@@ -29,8 +29,11 @@ class Schedule {
     }
 
     calcTimeSum(firstTime, secondTime) {
+        // [10, 30]
+        // [0, 45]
+        // [11, 15]
         const totalMinutes = firstTime[1] + secondTime[1];
-        const h = firstTime[0] + secondTime[0] + (totalMinutes > 60 ? 1 : 0);
+        const h = firstTime[0] + secondTime[0] + (totalMinutes > 60 ? 1 : 0);  // jei minuciu daugiau nei 60, grazinam 1, kitu atveju 0
         const m = totalMinutes % 60;
         return [h, m];
     }
